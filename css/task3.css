@@ -1,0 +1,26 @@
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+body {
+  background-color: rgb(236, 229, 229);
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.pictures {
+  display: block;
+}
+
+.imgItem {
+  width: 480px;
+  height: 100%;
+  object-fit: cover;
+}
