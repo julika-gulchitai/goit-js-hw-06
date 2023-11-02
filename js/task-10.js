@@ -24,8 +24,10 @@
 
 
 const inputNumber = document.querySelector('input');
+
 let figuresNumber = 0;
-inputNumber.addEventListener('input', () => { figuresNumber = inputNumber.value });
+
+inputNumber.addEventListener('input', () => {figuresNumber = inputNumber.value; });
 
 const btnCreate = document.querySelector('button[data-create]');
 
@@ -36,9 +38,9 @@ btnCreate.addEventListener('click', handleCreateBoxes);
 const btnDestroy = document.querySelector('button[data-destroy]');
  
 btnDestroy.addEventListener('click', destroyBoxes);
- 
+
 function handleCreateBoxes() {
-  if (inputNumber.value === '') return;
+  if (figuresNumber === '') return;
   else { 
   let i = 1; let j = 0;
   do {
@@ -54,8 +56,8 @@ function handleCreateBoxes() {
 }
 
 function destroyBoxes() {
-  divBoxes.remove();
   inputNumber.value = '';
+  divBoxes.innerHTML = '';
  }
   
 function getRandomHexColor() {
