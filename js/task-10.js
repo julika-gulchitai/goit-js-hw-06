@@ -22,15 +22,45 @@
 // Створи функцію destroyBoxes(), яка очищає вміст div#boxes, у такий спосіб видаляючи 
 // всі створені елементи.
 
+
+let inputNumber = document.querySelector('input');
+
+inputNumber.addEventListener('input', () => { console.log('inputNumber', inputNumber.value) });
+
+const btnCreate = document.querySelector('button[data-create]');
+
+const divBoxes = document.querySelector('#boxes');
+
+btnCreate.addEventListener('click', handleCreateBoxes);
+
+const btnDestroy = document.querySelector('button[data-destroy]');
+
+btnDestroy.addEventListener('click', destroyBoxes);
+ 
+function handleCreateBoxes() {
+  if (inputNumber.value === '') return;
+  else { 
+  let i = 1; let j = 0;
+  do {
+    let boxElement = document.createElement('div');
+    boxElement.classList.add('boxes');
+    boxElement.style.width = 30 + j + 'px';
+    boxElement.style.height = 30 + j + 'px';
+    boxElement.style.backgroundColor = getRandomHexColor();
+    divBoxes.append(boxElement);
+    i += 1; j += 10;
+  } while (i <= inputNumber.value);
+    return divBoxes;
+}
+}
+
+function destroyBoxes() {
+   divBoxes.remove();
+ }
+  
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
     .toString(16)
     .padStart(6, 0)}`;
 }
-
-let inputNumber = document.querySelector('input');
-console.log(inputNumber);
-inputNumber.addEventListener('input', (event) => {
-  console.log(inputNumber.value);
-})
 

@@ -29,13 +29,13 @@ function handleSubmit(event) {
     const email = form.elements.email.value;
     const password = form.elements.password.value;
     if (email === '' || password === '') {
-        alert('Є незаповнені поля форми! Заповніть їх, будь ласка!');
+       return alert('Є незаповнені поля форми! Заповніть їх, будь ласка!');
     }
     const formUser = {
         email: email,
         password: password,
     }
-    console.log(formUser);
+
     form.reset();
 }
 

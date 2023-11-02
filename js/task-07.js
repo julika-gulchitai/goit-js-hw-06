@@ -13,6 +13,6 @@ spanElement.classList.add('textSize');
 const headElement = document.querySelector('head');
 headElement.insertAdjacentHTML('beforeend', '<style> .textSize {font-size: 16px;}</style>');
 
-inputElement.addEventListener('change', (event) => {
+inputElement.addEventListener('input', (event) => {
     spanElement.style.fontSize = event.target.value + 'px';
     })
