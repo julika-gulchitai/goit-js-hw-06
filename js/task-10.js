@@ -23,9 +23,9 @@
 // всі створені елементи.
 
 
-let inputNumber = document.querySelector('input');
-
-inputNumber.addEventListener('input', () => { console.log('inputNumber', inputNumber.value) });
+const inputNumber = document.querySelector('input');
+let figuresNumber = 0;
+inputNumber.addEventListener('input', () => { figuresNumber = inputNumber.value });
 
 const btnCreate = document.querySelector('button[data-create]');
 
@@ -34,7 +34,7 @@ const divBoxes = document.querySelector('#boxes');
 btnCreate.addEventListener('click', handleCreateBoxes);
 
 const btnDestroy = document.querySelector('button[data-destroy]');
-
+ 
 btnDestroy.addEventListener('click', destroyBoxes);
  
 function handleCreateBoxes() {
@@ -49,13 +49,13 @@ function handleCreateBoxes() {
     boxElement.style.backgroundColor = getRandomHexColor();
     divBoxes.append(boxElement);
     i += 1; j += 10;
-  } while (i <= inputNumber.value);
-    return divBoxes;
-}
+  } while (i <= figuresNumber);
+  }
 }
 
 function destroyBoxes() {
-   divBoxes.remove();
+  divBoxes.remove();
+  inputNumber.value = '';
  }
   
 function getRandomHexColor() {
